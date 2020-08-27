@@ -3915,8 +3915,9 @@
         else {
           events.add(this._element, 'mousedown', listeners.pointerDown);
           events.add(this._element, 'mousemove', listeners.pointerHover);
-          events.add(this._element, 'touchstart', listeners.pointerDown);
-          events.add(this._element, 'touchmove', listeners.pointerHover);
+          // Removing touch events - https://barchartsolutions.atlassian.net/browse/FEA-2498
+          // events.add(this._element, 'touchstart', listeners.pointerDown);
+          // events.add(this._element, 'touchmove', listeners.pointerHover);
         }
       }
     }
@@ -5778,14 +5779,15 @@
       events.add(doc, 'mouseover', listeners.pointerOver);
       events.add(doc, 'mouseout', listeners.pointerOut);
 
-      events.add(doc, 'touchstart', listeners.selectorDown);
-      events.add(doc, 'touchmove', listeners.pointerMove);
-      events.add(doc, 'touchend', listeners.pointerUp);
-      events.add(doc, 'touchcancel', listeners.pointerCancel);
+      // Removing touch events - https://barchartsolutions.atlassian.net/browse/FEA-2498
+      // events.add(doc, 'touchstart', listeners.selectorDown);
+      // events.add(doc, 'touchmove', listeners.pointerMove);
+      // events.add(doc, 'touchend', listeners.pointerUp);
+      // events.add(doc, 'touchcancel', listeners.pointerCancel);
 
-            // autoscroll
+      // autoscroll
       events.add(doc, 'mousemove', listeners.autoScrollMove);
-      events.add(doc, 'touchmove', listeners.autoScrollMove);
+      // events.add(doc, 'touchmove', listeners.autoScrollMove);
     }
 
     events.add(win, 'blur', endAllInteractions);
@@ -5796,8 +5798,9 @@
           parentWindow = parentDoc.defaultView;
 
         events.add(parentDoc, 'mouseup', listeners.pointerEnd);
-        events.add(parentDoc, 'touchend', listeners.pointerEnd);
-        events.add(parentDoc, 'touchcancel', listeners.pointerEnd);
+        // Removing touch events - https://barchartsolutions.atlassian.net/browse/FEA-2498
+        // events.add(parentDoc, 'touchend', listeners.pointerEnd);
+        // events.add(parentDoc, 'touchcancel', listeners.pointerEnd);
         events.add(parentDoc, 'pointerup', listeners.pointerEnd);
         events.add(parentDoc, 'MSPointerUp', listeners.pointerEnd);
         events.add(parentWindow, 'blur', endAllInteractions);
